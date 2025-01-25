@@ -8,7 +8,7 @@ This repo contains the different neovim configurations for different languages.
 
 ```bash
 git clone git@github.com:MathieuGr02/neovim.git ~/.config
-``
+```
 
 ### MacOS / Linux
 

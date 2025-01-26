@@ -1,0 +1,6 @@
+*
+!.gitignore
+!nvim/
+!nvim_latex/
+!nvim_rust/
+!nvim_template/

@@ -164,7 +164,10 @@ return {
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- TODO: Add languages here
-			texlab = {},
+
+			-- Rust
+			rust_analyzer = {},
+
 			-- Spell checker
 			ltex_ls = {
 				capabilities = capabilities,

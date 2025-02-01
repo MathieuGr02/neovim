@@ -44,7 +44,5 @@ require("lazy").setup({
 	require("plugins.alpha"),
 	require("plugins.indent-blankline"),
 	-- Config specific packages
-	require("plugins.trouble"),
-	require("plugins.symbols_outline"),
-	require("plugins.overseer")
+	require("plugins.overseer"),
 })

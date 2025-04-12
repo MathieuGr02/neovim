@@ -1,6 +1,6 @@
 # Set base location for Neovim configurations
 export BASE_LOCATION="~/.config/nvim_config"
-CONFIGS=("latex" "rust")
+CONFIGS=("latex" "rust", "python")
 
 # Function to open a distribution configuration
 function open_distribution() {

@@ -1,6 +1,6 @@
 # Neovim setup
 $base_location = "${env:LOCALAPPDATA}\nvim_config"
-$configs = @("latex", "rust")
+$configs = @("latex", "rust", "python")
 Set-Alias nvims Open-Distribution
 
 function Open-Distribution([string]$config)

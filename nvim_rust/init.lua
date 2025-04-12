@@ -31,6 +31,23 @@ vim.g.vimtex_compiler_latexmk = {
 	},
 }
 
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "●", -- Symbol for inline diagnostics
+		source = true,
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	float = {
+		border = "rounded",
+		source = true,
+		header = "",
+		max_width = math.floor(vim.o.columns * 0.8), -- Set width to 80% of the screen width
+		max_height = math.floor(vim.o.lines * 0.4), -- Set height to 40% of the screen height
+	},
+})
+
 -- Packages
 require("lazy").setup({
 	-- General purpose packages
@@ -44,7 +61,5 @@ require("lazy").setup({
 	require("plugins.alpha"),
 	require("plugins.indent-blankline"),
 	-- Config specific packages
-	require("plugins.trouble"),
 	require("plugins.symbols_outline"),
-	require("plugins.overseer")
 })

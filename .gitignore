@@ -1,9 +1,11 @@
 /*
 *.DS_Store
 !/.gitignore
+!/README.md
 !/neovim_setup.ps1
 !/nvim/
 !/nvim_latex/
 !/nvim_rust/
 !/nvim_csharp/
+!/nvim_python/
 !/nvim_template/

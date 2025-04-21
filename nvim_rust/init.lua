@@ -48,6 +48,36 @@ vim.diagnostic.config({
 	},
 })
 
+vim.o.updatetime = 250
+-- Show diagnostics on hover
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focusable = false })
+	end,
+})
+
+-- Show LSP hover on hover
+vim.api.nvim_create_autocmd("CursorHoldI", {
+	callback = function()
+		vim.lsp.buf.hover()
+	end,
+})
+
+vim.diagnostic.config({
+	float = {
+		focusable = false,
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+	focusable = false,
+})
+
 -- Packages
 require("lazy").setup({
 	-- General purpose packages

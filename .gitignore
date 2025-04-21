@@ -1,5 +1,8 @@
 /*
-*.DS_Store
+.DS_Store
+*.log
+
+# Whitelist
 !/.gitignore
 !/README.md
 !/neovim_setup.ps1

@@ -59,7 +59,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- Show LSP hover on hover
 vim.api.nvim_create_autocmd("CursorHoldI", {
 	callback = function()
-		vim.lsp.buf.hover()
+		local active_clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+		for _, client in ipairs(active_clients) do
+			if client.supports_method("textDocument/hover") then
+				vim.lsp.buf.hover()
+				break
+			end
+		end
 	end,
 })
 

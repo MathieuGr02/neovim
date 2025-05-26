@@ -12,24 +12,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "none" })
-
 vim.diagnostic.config({
 	float = { border = "none" },
 })
 
 vim.o.cmdheight = 1 -- Reduce command line height
-
--- VimTex pygmentsize config
-vim.g.vimtex_compiler_latexmk = {
-	options = {
-		"-shell-escape",
-		"-verbose",
-		"-file-line-error",
-		"-synctex=1",
-		"-interaction=nonstopmode",
-	},
-}
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -46,42 +33,6 @@ vim.diagnostic.config({
 		max_width = math.floor(vim.o.columns * 0.8), -- Set width to 80% of the screen width
 		max_height = math.floor(vim.o.lines * 0.4), -- Set height to 40% of the screen height
 	},
-})
-
-vim.o.updatetime = 250
--- Show diagnostics on hover
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		vim.diagnostic.open_float(nil, { focusable = false })
-	end,
-})
-
--- Show LSP hover on hover
-vim.api.nvim_create_autocmd("CursorHoldI", {
-	callback = function()
-		local active_clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
-		for _, client in ipairs(active_clients) do
-			if client.supports_method("textDocument/hover") then
-				vim.lsp.buf.hover()
-				break
-			end
-		end
-	end,
-})
-
-vim.diagnostic.config({
-	float = {
-		focusable = false,
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
-	},
-})
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "rounded",
-	focusable = false,
 })
 
 -- Packages
